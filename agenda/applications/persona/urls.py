@@ -14,4 +14,5 @@ urlpatterns = [
     path('api/persona/delete/<pk>/', views.PersonDeleteView.as_view(),),
     path('api/persona/update/<pk>/', views.PersonUpdateView.as_view(),),
     path('api/persona/modificar/<pk>/', views.PersonRetriveUpdateView.as_view(),),
+    path('api/personas/', views.PersonApiLista.as_view(),),
 ]
