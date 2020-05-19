@@ -8,11 +8,14 @@ from rest_framework.generics import (
     UpdateAPIView,
     RetrieveUpdateAPIView,
 )
-from .models import Person
+from .models import Person, Reunion
 from .serializers import (
     PersonSerializer,
     PersonaSerializer,
-    PersonaSerializer2
+    PersonaSerializer2,
+    PersonaSerializer3,
+    ReunionSerializer,
+    ReunionSerializer2
 )
 
 
@@ -79,7 +82,15 @@ class PersonRetriveUpdateView(RetrieveUpdateAPIView):
 class PersonApiLista(ListAPIView):
 
     #serializer_class = PersonaSerializer
-    serializer_class = PersonaSerializer2
+    serializer_class = PersonaSerializer3
 
     def get_queryset(self):
         return Person.objects.all()
+
+
+class ReunionApiLista(ListAPIView):
+
+    serializer_class = ReunionSerializer2
+
+    def get_queryset(self):
+        return Reunion.objects.all()
