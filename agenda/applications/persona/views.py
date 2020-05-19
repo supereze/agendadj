@@ -2,7 +2,9 @@ from django.shortcuts import render
 from django.views.generic import ListView, TemplateView
 from rest_framework.generics import (
     ListAPIView,
-    CreateAPIView
+    CreateAPIView,
+    RetrieveAPIView,
+    DestroyAPIView,
 )
 from .models import Person
 from .serializers import PersonSerializer
@@ -42,4 +44,15 @@ class PersonSearchApiView(ListAPIView):
 class PersonCreateView(CreateAPIView):
 
     serializer_class = PersonSerializer
-    
+
+
+class PersonDetailView(RetrieveAPIView):
+
+    serializer_class = PersonSerializer
+    queryset = Person.objects.filter()
+
+
+class PersonDeleteView(DestroyAPIView):
+
+    serializer_class = PersonSerializer
+    queryset = Person.objects.filter()
