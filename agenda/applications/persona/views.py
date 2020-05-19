@@ -11,7 +11,8 @@ from rest_framework.generics import (
 from .models import Person
 from .serializers import (
     PersonSerializer,
-    PersonaSerializer
+    PersonaSerializer,
+    PersonaSerializer2
 )
 
 
@@ -77,7 +78,8 @@ class PersonRetriveUpdateView(RetrieveUpdateAPIView):
 
 class PersonApiLista(ListAPIView):
 
-    serializer_class = PersonSerializer
+    #serializer_class = PersonaSerializer
+    serializer_class = PersonaSerializer2
 
     def get_queryset(self):
         return Person.objects.all()
