@@ -5,6 +5,8 @@ from rest_framework.generics import (
     CreateAPIView,
     RetrieveAPIView,
     DestroyAPIView,
+    UpdateAPIView,
+    RetrieveUpdateAPIView,
 )
 from .models import Person
 from .serializers import PersonSerializer
@@ -53,6 +55,18 @@ class PersonDetailView(RetrieveAPIView):
 
 
 class PersonDeleteView(DestroyAPIView):
+
+    serializer_class = PersonSerializer
+    queryset = Person.objects.filter()
+
+
+class PersonUpdateView(UpdateAPIView):
+
+    serializer_class = PersonSerializer
+    queryset = Person.objects.filter()
+
+
+class PersonRetriveUpdateView(RetrieveUpdateAPIView):
 
     serializer_class = PersonSerializer
     queryset = Person.objects.filter()
