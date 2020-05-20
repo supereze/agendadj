@@ -82,6 +82,7 @@ class ReunionSerializer2(serializers.ModelSerializer):
             'hora',
             'asunto',
             'persona',
+            'fecha_hora',
         )
 
     def get_fecha_hora(self, obj):

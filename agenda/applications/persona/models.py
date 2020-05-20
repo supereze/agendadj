@@ -14,7 +14,7 @@ class Hobby(TimeStampedModel):
         verbose_name_plural = 'Hobbies'
     
     def __str__(self):
-        return self.full_name
+        return self.hobby
 
 #
 class Person(TimeStampedModel):
